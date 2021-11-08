@@ -32,7 +32,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   counter1 is a high order function , counter2 is a helper function
   
   2. Which of the two uses a closure? How can you tell?
-  counter1 is using a closure , because function counter() (as an inner function) is reaching out to the outer function counterMaker() tp use the variable count that is defined in it. 
+  counter1 is using a closure , because function counter() (as an inner function) is reaching out to the outer function counterMaker() to access the variable count that is defined in it. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
@@ -90,7 +90,7 @@ Use the finalScore function below to do the following:
 
 function finalScore(callback,inningsCount){
   let scores = {Home: 0, Away: 0}
-  console.log(callback)
+  //console.log(callback)
   for (let i =0; i < inningsCount.length; i++){
   scores.Home = scores.Home + callback();
   scores.Away= scores.Away + callback();
@@ -155,9 +155,30 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(createHomeAndAwayScoresObject,getRandomScore,numberOInnings) {
+//create an array to print the count of innings and scores of Home and Away
+   let  newArray =[];
+   let  totalScoreHome = 0 ;
+   let  totalScoreAway = 0 ;
+   // loop through every count
+  for (let inning = 0; inning < numberOInnings; inning++ ){
+    // for every inning push the string that shows the inning and 
+    // scores for Home and Away for the current inning 
+    
+    const inningScores = createHomeAndAwayScoresObject(getRandomScore)
+    totalScoreHome = totalScoreHome + inningScores.Home;
+    totalScoreAway += inningScores.Away;
+     newArray.push(`Inning ${inning}: Away  ${inningScores.Away} -  Home ${inningScores.Home}`)
+
+  }
+ if (totalScoreHome === totalScoreAway){
+   newArray.push(`Final Score : Away ${totalScoreAway} - Home ${totalScoreHome}`)
+ }
+ 
+  //return the whole array after every count is finished
+   return newArray;
+ }
+ console.log(scoreboard(getInningScore,inning ,9 ))
 
 
 
