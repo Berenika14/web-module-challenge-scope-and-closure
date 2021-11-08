@@ -171,10 +171,11 @@ function scoreboard(createHomeAndAwayScoresObject,getRandomScore,numberOInnings)
      newArray.push(`Inning ${inning}: Away  ${inningScores.Away} -  Home ${inningScores.Home}`)
 
   }
- if (totalScoreHome === totalScoreAway){
-   newArray.push(`Final Score : Away ${totalScoreAway} - Home ${totalScoreHome}`)
- }
- 
+  newArray.push(`Final Score : Away ${totalScoreAway} - Home ${totalScoreHome}`)
+
+  if (totalScoreHome ===  totalScoreAway){
+    newArray.push(`This game will require extra inning: Away : ${totalScoreAway} - Home ${totalScoreHome}`)
+  }
   //return the whole array after every count is finished
    return newArray;
  }
