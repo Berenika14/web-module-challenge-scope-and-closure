@@ -61,6 +61,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure happens or can be defined when a inner function is reaching for a variable that is defined in an outer function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +85,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+I believe the closure is happening at the console.log(`${name}) the inner function will reach to the outer function for the name.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name argument will be the same(since we are passing the argument for name) and newRoll variable will change between 0,1,2,3,4,5 because of (Math.floor(Math.random).
 c. What is the lexical scope of `newRoll`? 
+the lexical scope of 'newRoll'is the inner function
 
 
 ### Task 3 - Stretch Goals
